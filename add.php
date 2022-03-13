@@ -10,10 +10,13 @@
 
 // todo: Check if data is sent with POST method and do something 
 
+// ! PREVENT AGAINST XSS ATTACKS
+//* Use 'htmlspecialchars(<the-data-you-outpu>)'
+
 if(isset($_POST['submit'])) {
-    echo $_POST['email'];
-    echo $_POST['title'];
-    echo $_POST['ingredients'];
+    echo htmlspecialchars($_POST['email']);
+    echo htmlspecialchars($_POST['title']);
+    echo htmlspecialchars($_POST['ingredients']);
 }
 
 ?>
