@@ -24,7 +24,12 @@ if(isset($_POST['submit'])) {
         echo 'An email is required <br />';
     }
     else {
-        echo htmlspecialchars($_POST['email']);
+        $email = $_POST['email'];
+
+        //todo: check if email is valid
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            echo 'Email must be a valid email address';
+        };
     }
 
     //* Check title
@@ -32,7 +37,10 @@ if(isset($_POST['submit'])) {
         echo 'A title is required <br />';
     }
     else {
-        echo htmlspecialchars($_POST['title']);
+        $title = $_POST['title'];
+        if(!preg_match('/^[a-zA-Z\s]+$/', $title)) {
+            echo 'Title must be letters and spaces only';
+        };
     }
 
     //* Check ingredients
@@ -40,7 +48,10 @@ if(isset($_POST['submit'])) {
         echo 'Atleast one ingredient is required <br />';
     }
     else {
-        echo htmlspecialchars($_POST['ingredients']);
+        $ingredients = $_POST['ingredients'];
+        if(!preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/', $ingredients)) {
+            echo 'Ingredients must be a comma seperated list';
+        };
     }
 } //* End of POST check
 
