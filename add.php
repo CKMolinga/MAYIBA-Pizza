@@ -56,6 +56,15 @@ if(isset($_POST['submit'])) {
             $errors['ingredients'] = 'Ingredients must be a comma seperated list';
         };
     }
+
+    if(array_filter($errors)) {
+        // echo 'errors in the form';
+    }
+    else {
+        // echo 'form is valid';
+        header('Location: index.php');
+    }
+
 } //* End of POST check
 
 ?>
