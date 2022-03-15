@@ -48,7 +48,7 @@ explode(',', $pizzas[0]['ingredients']);
                         </ul>
                     </div>
                     <div class="card-action right-align">
-                        <a href="#" class="brand-text">more info</a>
+                        <a href="details.php?id=<?php echo $pizza['id'] ?>" class="brand-text">more info</a>
                     </div>
                 </div>
             </div>
